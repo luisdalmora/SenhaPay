@@ -2,34 +2,21 @@
 <html lang="pt-br">
 
 <head>
-  <title>Gerador de Senha</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Senhas</title>
 </head>
 
 <body>
-  <button id="gerarSenha">Gerar Senha</button>
+  <button id="senhaPay">Senha Pay</button>
   <p id="senhaGerada"></p>
 
-  <script>
-    document.getElementById("gerarSenha").addEventListener("click", function () {
-      var dataAtual = new Date();
+  <button id="senhaAutomacao">Senha Automação</button>
+  <p id="senhaGerada2"></p>
+  <script src="script.js"></script>
 
-      // Subtrai os componentes da data e hora para calcular a senha
-      var valorSenha = dataAtual.getFullYear() -
-        (dataAtual.getMonth() + 1) -
-        dataAtual.getDate() -
-        dataAtual.getHours() -
-        3;
-
-      // Formata o valor da senha
-      var senha = dataAtual.getFullYear() + "-" +
-        (dataAtual.getMonth() + 1) + "-" +
-        dataAtual.getDate() + "-" +
-        dataAtual.getHours() + "-3";
-
-      // Exibe o valor da senha
-      document.getElementById("senhaGerada").textContent = "Senha: " + valorSenha;
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
