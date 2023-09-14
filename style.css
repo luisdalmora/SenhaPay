@@ -53,6 +53,6 @@ body {
   margin-top: 20px;
 }
 
-a:hover {
+#link:hover {
   text-decoration: none;
 }
