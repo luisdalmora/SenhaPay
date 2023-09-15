@@ -3,6 +3,26 @@
   --branco: #ffffff;
 }
 
+@media (max-width: 576px) {
+  /* CSS para dispositivos móveis */
+  body {
+    font-size: 16px;
+  }
+
+  .botao {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  #senhaGerada {
+    font-size: 20px;
+  }
+
+  footer {
+    height: 7vh;
+  }
+}
+
 body {
   background-image: url("./imagens/fundo.jpg"); /* Caminho para a imagem de fundo */
   background-size: cover; /* Para cobrir toda a tela */
@@ -14,6 +34,7 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  width: auto;
 }
 
 .botao {
