@@ -38,9 +38,11 @@ body {
 #senhaGerada {
   font-size: 60px;
   margin-top: 20px;
-  color: var(--branco);
+  color: var(--link);
   font-family: "Roboto Mono", monospace;
+  font-weight: bold;
 }
+
 footer {
   color: var(--branco);
   position: fixed; /* Fixo */
