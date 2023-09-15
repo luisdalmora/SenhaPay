@@ -41,6 +41,7 @@ document
     gerarSenha(true);
   });
 
+//Abri nova Aba//
 const links = document.querySelectorAll("a");
 
 links.forEach((link) => {
@@ -48,3 +49,22 @@ links.forEach((link) => {
     window.open(link.href, "_blank");
   });
 });
+
+//Copiar
+// Função para copiar o texto para a área de transferência
+//function copiarTexto() {
+//  var senhaGerada = document.getElementById("senhaGerada").textContent;
+//
+//  var textarea = document.createElement("textarea");
+//  textarea.value = senhaGerada;
+//
+//  document.body.appendChild(textarea);
+//  textarea.select();
+//  document.execCommand("copy");
+//  document.body.removeChild(textarea);
+//
+//  // Exiba uma mensagem ou efeito de feedback de que a senha foi copiada
+//  alert("Senha copiada para a área de transferência!");
+//}
+//
+//document.getElementById("copiarSenha").addEventListener("click", copiarTexto);
