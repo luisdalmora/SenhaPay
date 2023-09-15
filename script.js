@@ -1,16 +1,16 @@
-//-----------------------------Senha Pay-------------------------------------------------
-document.getElementById("senhaPay").addEventListener("click", function () {
+function gerarSenha(automacao) {
+  // Gera a senha
   var dataAtual = new Date();
-
-  // Subtrai os componentes da data e hora para calcular a senha
   var valorSenha =
     dataAtual.getFullYear() -
     (dataAtual.getMonth() + 1) -
     dataAtual.getDate() -
-    dataAtual.getHours() -
-    3;
+    dataAtual.getHours();
 
-  // Formata o valor da senha
+  if (!automacao) {
+    valorSenha -= 3;
+  }
+
   var senha =
     dataAtual.getFullYear() +
     "-" +
@@ -19,35 +19,24 @@ document.getElementById("senhaPay").addEventListener("click", function () {
     dataAtual.getDate() +
     "-" +
     dataAtual.getHours() +
-    "-3";
+    (automacao ? "-Auto" : "-Pay");
 
-  // Exibe o valor da senha
+  // Define um temporizador de 5 segundos
+  setTimeout(() => {
+    // Apaga o resultado
+    document.getElementById("senhaGerada").textContent = "";
+  }, 5000);
+
+  // Mostra a senha
   document.getElementById("senhaGerada").textContent = "Senha: " + valorSenha;
+}
+
+document.getElementById("senhaPay").addEventListener("click", function () {
+  gerarSenha(false);
 });
 
-//----------------------------Senha Automação-------------------------------------------------
 document
   .getElementById("senhaAutomacao")
   .addEventListener("click", function () {
-    var dataAtual = new Date();
-
-    // Subtrai os componentes da data e hora para calcular a senha
-    var valorSenha =
-      dataAtual.getFullYear() -
-      (dataAtual.getMonth() + 1) -
-      dataAtual.getDate() -
-      dataAtual.getHours();
-
-    // Formata o valor da senha
-    var senha =
-      dataAtual.getFullYear() +
-      "-" +
-      (dataAtual.getMonth() + 1) +
-      "-" +
-      dataAtual.getDate() +
-      "-" +
-      dataAtual.getHours();
-    // Exibe o valor da senha
-    document.getElementById("senhaGerada2").textContent =
-      "Senha: " + valorSenha;
+    gerarSenha(true);
   });
