@@ -40,3 +40,11 @@ document
   .addEventListener("click", function () {
     gerarSenha(true);
   });
+
+const links = document.querySelectorAll("a");
+
+links.forEach((link) => {
+  link.addEventListener("click", function () {
+    window.open(link.href, "_blank");
+  });
+});
