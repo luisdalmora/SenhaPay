@@ -31,6 +31,9 @@ function gerarSenha(automacao) {
   document.getElementById("senhaGerada").textContent = "Senha:" + valorSenha;
 }
 
+// Exibe o botão de copiar senha
+document.getElementById("copiarSenha").style.display = "inline-block";
+
 document.getElementById("senhaPay").addEventListener("click", function () {
   gerarSenha(false);
 });
@@ -50,21 +53,21 @@ links.forEach((link) => {
   });
 });
 
-//Copiar
-// Função para copiar o texto para a área de transferência
-//function copiarTexto() {
-//  var senhaGerada = document.getElementById("senhaGerada").textContent;
-//
-//  var textarea = document.createElement("textarea");
-//  textarea.value = senhaGerada;
-//
-//  document.body.appendChild(textarea);
-//  textarea.select();
-//  document.execCommand("copy");
-//  document.body.removeChild(textarea);
-//
-//  // Exiba uma mensagem ou efeito de feedback de que a senha foi copiada
-//  alert("Senha copiada para a área de transferência!");
-//}
-//
-//document.getElementById("copiarSenha").addEventListener("click", copiarTexto);
+// Função para copiar a senha
+document.getElementById("copiarSenha").addEventListener("click", function () {
+  var senha = document.getElementById("senhaGerada").textContent;
+
+  if (senha) {
+    // Cria um elemento temporário para copiar o texto
+    var tempInput = document.createElement("input");
+    tempInput.value = senha;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    alert("Senha copiada: " + senha);
+  } else {
+    alert("Nenhuma senha gerada para copiar.");
+  }
+});
