@@ -24,15 +24,30 @@ function gerarSenha(automacao) {
   // Define um temporizador de 5 segundos
   setTimeout(() => {
     // Apaga o resultado
-    document.getElementById("senhaGerada").textContent = "";
+    $('#senhaGerada').addClass('d-none');
+    $('#copiarSenha').addClass('d-none');
   }, 5000);
+
+  // Mostra uma notificação de sucesso com Toastr
+  toastr.options = {
+    "closeButton": true,
+    "progressBar": true, 
+    "newestOnTop": true,
+    "preventDuplicates": true,
+    "timeOut": "5000",
+    "positionClass": "toast-top-right"
+  };
+
+  toastr.success('Senha gerada com sucesso!');
 
   // Mostra a senha
   document.getElementById("senhaGerada").textContent = "Senha:" + valorSenha;
+  $('#senhaGerada').removeClass('d-none');
+  $('#copiarSenha').removeClass('d-none');
 }
 
 // Exibe o botão de copiar senha
-document.getElementById("copiarSenha").style.display = "inline-block";
+// document.getElementById("copiarSenha").style.display = "inline-block";
 
 document.getElementById("senhaPay").addEventListener("click", function () {
   gerarSenha(false);
@@ -66,8 +81,8 @@ document.getElementById("copiarSenha").addEventListener("click", function () {
     document.execCommand("copy");
     document.body.removeChild(tempInput);
 
-    alert("Senha copiada: " + senha);
+    toastr.success(senha, "Senha Copiada");
   } else {
-    alert("Nenhuma senha gerada para copiar.");
+    toastr.error("Nenhuma senha gerada para copiar.");
   }
 });
